@@ -1,6 +1,12 @@
 class Client < ApplicationRecord
-  # validates :gym_id, uniqueness: true
-
   has_many :memberships
   has_many :gyms, through: :memberships
+
+  def summary
+    charges = 0
+    memberships.each do |membership|
+      charges += membership.charge
+    end
+    charges
+  end
 end
