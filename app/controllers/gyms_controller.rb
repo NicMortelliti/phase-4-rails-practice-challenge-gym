@@ -6,6 +6,12 @@ class GymsController < ApplicationController
     render json: gym, status: :ok
   end
 
+  def destroy
+    gym = Gym.find(params[:id])
+    gym.destroy
+    head :no_content
+  end
+
   private
 
   def render_record_not_found

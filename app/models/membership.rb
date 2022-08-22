@@ -1,7 +1,7 @@
 class Membership < ApplicationRecord
-  validates :gym_id, null: false
-  validates :client_id, null: false
-  validates :charge, null: false
+  validates :gym_id, presence: true
+  validates :client_id, presence: true
+  validates :charge, presence: true
 
   belongs_to :client
   belongs_to :gym
